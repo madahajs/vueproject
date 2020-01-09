@@ -67,6 +67,9 @@ export default {
                 //2 通过你编程式导航跳转到后台主页，路由是 /home
                 //return this.$message.success("登录成功");
                 this.$router.push('/home')
+
+                //登陆导航守卫控制权限
+                //如果用户没有登陆，但是直接通过url访问特定页面，需要重新导航到登陆页面
             });
         }
     }
