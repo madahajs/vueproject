@@ -25,8 +25,8 @@ export default {
     data(){
         return{
            loginForm:{
-                username: 'zs',
-                password: 'ls'
+                username: 'admin',
+                password: '123456'
             },
 
             loginFormRules:{
@@ -62,8 +62,11 @@ export default {
                 //1 将登陆成功后的token保存在客户端的sessionStorage中
                 //    1.1 项目中出现了登陆之外的其他api接口，必须在登陆之后才能访问
                 //    1.2 token之应用在当前网站打开期间生效，所以将token保存在sessionStorage中
+                window.sessionStorage.setItem("token", res.data.token);
+                
                 //2 通过你编程式导航跳转到后台主页，路由是 /home
-                return this.$message.success("登录成功");
+                //return this.$message.success("登录成功");
+                this.$router.push('/home')
             });
         }
     }
